@@ -1,6 +1,6 @@
 name: Deploy Blazor WASM to GitHub Page
 env:
-  PUBLISH_DIR: /home/runner/work/Mc60DateTimeGenerator/Mc60DateTimeGenerator/Mc60TimeGenerator/bin/Release/net5.0/publish/wwwroot
+  FUll_PUBLISH_DIR: /home/runner/work/Mc60DateTimeGenerator/Mc60DateTimeGenerator/Mc60TimeGenerator/bin/Release/net5.0/publish/wwwroot
   publish_dir: bin/Release/net5.0/publish/wwwroot
 on:
   push:
@@ -18,11 +18,11 @@ jobs:
         if: success()
         uses: SteveSandersonMS/ghaction-rewrite-base-href@v1
         with:
-          html_path: ${{ env.PUBLISH_DIR }}/index.html
+          html_path: ${{ env.FUll_PUBLISH_DIR }}/index.html
           base_href: /Mc60DateTimeGenerator/
     # add .nojekyll file to tell GitHub pages to not treat this as a Jekyll project. (Allow files and folders starting with an underscore)
       - name: Add .nojekyll file
-        run: touch ${{ env.PUBLISH_DIR }}/.nojekyll
+        run: touch ${{ env.FUll_PUBLISH_DIR }}/.nojekyll
         
       - name: Commit to GitHub pages Repo
         if: success()

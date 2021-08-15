@@ -1,0 +1,16 @@
+﻿@page "/counter"
+
+<h1>Counter</h1>
+
+<p>Current date: @MC60Time</p>
+
+<input type="datetime-local" @onchange="CalculateStandardDimensions" />
+@code {
+    public string MC60Time { get; set; }
+    public void CalculateStandardDimensions(ChangeEventArgs e)
+    {
+        var date = DateTime.Parse(e.Value.ToString());
+        MC60Time= $"{date:yy}/{date:MM}/{date:dd},{date:HH:mm:ss}+00";
+        
+    }
+}

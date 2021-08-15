@@ -1,6 +1,6 @@
 ﻿@page "/"
 
-<p>Current date: @MC60Time</p>
+<p>Selected date: @MC60Time</p>
 
 <input type="datetime-local" @onchange="CalculateStandardDimensions" />
 @code {
@@ -11,4 +11,9 @@
         MC60Time = $"{date:yy}/{date:MM}/{date:dd},{date:HH:mm:ss}+00";
 
     }
+    public string CurrectDateConvert()
+        {
+        
+        return $"{DateTime.UtcNow:yy}/{DateTime.UtcNow:MM}/{DateTime.UtcNow:dd},{DateTime.UtcNow:HH:mm:ss}+00";
+        }
 }

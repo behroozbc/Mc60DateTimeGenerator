@@ -1,8 +1,10 @@
 ﻿@page "/"
-
-<p>Selected date: @MC60Time</p>
-
-<input type="datetime-local" @onchange="CalculateStandardDimensions" />
+@inject ClipboardService ClipboardService
+<span>Selected date: @MC60Time</span>
+<button @onclick="CopyToClipboard" class="oi oi-clipboard btn btn-primary"></button>
+<div>
+    <input type="datetime-local" @onchange="CalculateStandardDimensions" />
+</div>
 @code {
     public string MC60Time { get; set; }
     public void CalculateStandardDimensions(ChangeEventArgs e)
@@ -11,9 +13,13 @@
         MC60Time = $"{date:yy}/{date:MM}/{date:dd},{date:HH:mm:ss}+00";
 
     }
+    async Task CopyToClipboard()
+    {
+        await ClipboardService.WriteTextAsync(MC60Time);
+    }
     public string CurrectDateConvert()
-        {
-        
+    {
+
         return $"{DateTime.UtcNow:yy}/{DateTime.UtcNow:MM}/{DateTime.UtcNow:dd},{DateTime.UtcNow:HH:mm:ss}+00";
-        }
+    }
 }

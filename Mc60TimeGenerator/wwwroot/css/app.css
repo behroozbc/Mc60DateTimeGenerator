@@ -48,3 +48,20 @@ a, .btn-link {
         right: 0.75rem;
         top: 0.5rem;
     }
+
+#loader {
+    bottom: 0;
+    height: 175px;
+    left: 0;
+    margin: auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 175px;
+}
+
+
+    #loader > span {
+        color: #00796B;
+        font-size: xx-large;
+    }
